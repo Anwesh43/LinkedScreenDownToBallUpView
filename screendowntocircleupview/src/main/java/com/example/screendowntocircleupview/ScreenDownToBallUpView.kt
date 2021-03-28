@@ -205,4 +205,13 @@ class ScreenDownToBallUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ScreenDownToBallUpView {
+            val view : ScreenDownToBallUpView = ScreenDownToBallUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
