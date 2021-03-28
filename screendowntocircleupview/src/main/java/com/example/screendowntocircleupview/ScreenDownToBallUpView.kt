@@ -180,4 +180,27 @@ class ScreenDownToBallUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ScreenDownToBallUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val sdtbu : ScreenDownToBallUp = ScreenDownToBallUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            sdtbu.draw(canvas, paint)
+            animator.animate {
+                sdtbu.update {
+                    animator.start()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sdtbu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
