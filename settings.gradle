@@ -1,0 +1,3 @@
+include ':screendowntocircleupview'
+include ':app'
+rootProject.name = "LinkedScreenDownToBallUpView"
